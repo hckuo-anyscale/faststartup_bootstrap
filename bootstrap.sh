@@ -1,6 +1,8 @@
 #/bin/bash
 set -e
 
+echo "ubuntu  ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
+
 sudo apt update && sudo apt-get install -y containerd
 
 sudo mkdir -p /ect/containerd
