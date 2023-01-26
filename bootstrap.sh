@@ -14,7 +14,8 @@ sudo systemctl restart containerd
 
 
 sudo mkdir -p /app/go/infra/anyscaled/anyscaled_
-sudo wget -O /app/go/infra/anyscaled/anyscaled_/anyscaled_shim
+sudo wget -O /app/go/infra/anyscaled/anyscaled_/anyscaled_shim https://github.com/hckuo-anyscale/faststartup_bootstrap/raw/main/anyscaled_shim
+sudo chmod a+x /app/go/infra/anyscaled/anyscaled_/anyscaled_shim
 
 sudo tee /lib/systemd/system/anyscaled.service <<EOF
 [Unit]
