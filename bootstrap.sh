@@ -3,6 +3,7 @@ set -e
 
 sudo apt update && sudo apt-get install -y containerd
 
+sudo mkdir -p /ect/containerd
 sudo tee --append /etc/containerd/config.toml <<EOF
 [proxy_plugins]
   [proxy_plugins.squashoverlay]
