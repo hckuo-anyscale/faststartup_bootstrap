@@ -20,15 +20,15 @@ sudo curl -fsSL \
 sudo chmod a+x /app/go/infra/anyscaled/anyscaled_/anyscaled_shim
 
 sudo tee /lib/systemd/system/anyscaled.service <<EOF
-[unit]
-description=anyscale daemon process
-[service]
-restart=always
-restartsec=5
-workingdirectory=/app
-execstart=/app/go/infra/anyscaled/anyscaled_/anyscaled_shim
-[install]
-wantedby=multi-user.target
+[Unit]
+Description=Anyscale Daemon Process
+[Service]
+Restart=always
+RestartSec=5
+WorkingDirectory=/app
+ExecStart=/app/go/infra/anyscaled/anyscaled_/anyscaled_shim
+[Install]
+WantedBy=multi-user.target
 EOF
 sudo systemctl daemon-reload
 sudo systemctl restart anyscaled
