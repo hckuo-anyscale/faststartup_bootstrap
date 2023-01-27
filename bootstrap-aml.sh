@@ -1,7 +1,5 @@
 #/bin/bash
 set -e
-
-echo "ec2-user  ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
 sudo mkdir -p /ect/containerd
 sudo tee --append /etc/containerd/config.toml <<EOF
 [proxy_plugins]
