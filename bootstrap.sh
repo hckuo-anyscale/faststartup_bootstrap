@@ -57,10 +57,13 @@ EOF
 EOF
 
 
+	sudo systemctl restart containerd
+}
+
+install_runc() {
 	# install runc
 	curl -fsSL https://github.com/opencontainers/runc/releases/download/v1.1.4/runc.amd64 -o /tmp/runc.amd64
 	sudo install -m 755 /tmp/runc.amd64 /usr/local/sbin/runc
-	sudo systemctl restart containerd
 }
 
 install_anyscaled() {
@@ -88,4 +91,5 @@ echo "ubuntu  ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
 
 install_anyscaled &
 install_containerd &
+install_runc &
 wait
