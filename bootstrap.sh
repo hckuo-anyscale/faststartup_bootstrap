@@ -90,6 +90,9 @@ EOF
 echo "ubuntu  ALL=(ALL) NOPASSWD: ALL" | sudo tee --append /etc/sudoers
 
 install_anyscaled &
-install_containerd &
-install_runc &
+
+if ! containerd --help; then
+	install_containerd &
+	install_runc &
+fi
 wait
