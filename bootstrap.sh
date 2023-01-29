@@ -56,6 +56,10 @@ EOF
     address = "/var/run/containerd/squashoverlay/plugin.sock"
 EOF
 
+
+	# install runc
+	curl -fsSL https://github.com/opencontainers/runc/releases/download/v1.1.4/runc.amd64 -o /tmp/runc.amd64
+	sudo install -m 755 /tmp/runc.amd64 /usr/local/sbin/runc
 	sudo systemctl restart containerd
 }
 
